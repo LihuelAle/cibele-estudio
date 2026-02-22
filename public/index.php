@@ -117,39 +117,75 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Incluir vista según página
-switch ($page) {
+switch($page){
+
     case 'tienda':
         $productos = $productoCtrl->listar();
-        include dirname(__FILE__) . '/../app/views/tienda.php';
-        break;
-    
+        require dirname(__FILE__) . '/../app/views/tienda.php';
+    break;
+
     case 'carrito':
-        include dirname(__FILE__) . '/../app/views/carrito.php';
-        break;
-    
+        require dirname(__FILE__) . '/../app/views/carrito.php';
+    break;
+
     case 'confirmacion':
-        $pedido_id = $_GET['pedido_id'] ?? 0;
-        $pedido = $pedidoCtrl->obtener($pedido_id);
-        include dirname(__FILE__) . '/../app/views/confirmacion.php';
-        break;
-    
-    case 'admin':
-        // Verificar si es admin (temporalmente sin autenticación)
-        $_SESSION['admin'] = true;
-        $section = $_GET['section'] ?? 'productos';
-        
-        if ($section === 'productos') {
-            $productos = $productoCtrl->listar();
-            include dirname(__FILE__) . '/../app/views/admin_productos.php';
-        } elseif ($section === 'pedidos') {
-            $pedidos = $pedidoCtrl->listar();
-            include dirname(__FILE__) . '/../app/views/admin_pedidos.php';
-        }
-        break;
-    
+        require dirname(__FILE__) . '/../app/views/confirmacion.php';
+    break;
+
     default:
-        $productos = $productoCtrl->listar();
-        include dirname(__FILE__) . '/../app/views/tienda.php';
+        echo "Página no encontrada";
+    break;
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cibele Estudio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1> funciona? </h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+                <li><a href="#admin">Admin Panel</a></li>
+                <li><a href="#orders">Order Management</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="products">
+            <h1>Product Display</h1>
+            <div class="product-list">
+                <!-- Product items will be inserted here -->
+                <div class="product-item">
+                    <h2>Product Name</h2>
+                    <p>Description of the product.</p>
+                    <button>Add to Cart</button>
+                </div>
+                <!-- Repeat for more products -->
+            </div>
+        </section>
+        <section id="cart">
+            <h1>Your Shopping Cart</h1>
+            <!-- Shopping cart items will be displayed here -->
+        </section>
+        <section id="admin">
+            <h1>Admin Panel</h1>
+            <p>Manage products and orders here.</p>
+        </section>
+        <section id="orders">
+            <h1>Order Management</h1>
+            <p>Manage customer orders here.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Cibele Estudio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
