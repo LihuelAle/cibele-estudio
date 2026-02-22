@@ -1,10 +1,8 @@
 <?php
+
 require_once __DIR__ . '/../config/config.php';
 
-/* DEBUG PROVISORIO */
-echo "<pre>";
-var_dump($productos ?? 'NO EXISTE $productos');
-echo "</pre>";?>
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

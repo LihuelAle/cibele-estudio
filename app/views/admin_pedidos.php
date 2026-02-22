@@ -1,10 +1,4 @@
-<?php
-require_once __DIR__ . '/../controllers/PedidoController.php';
-require_once __DIR__ . '/../../config/database.php';
 
-$pedidoCtrl = new PedidoController();
-$pedidos = $pedidoCtrl->listar();
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

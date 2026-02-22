@@ -450,7 +450,7 @@
 </div>
 
 <footer>
-    <div class="footer-logo">Cibele Estudio 🌿</div>
+    <div class="footer-logo">Cibele Estudio</div>
     <p>Manualidades y artesanías hechas con dedicación 💜</p> 
     <div class="footer-social">
         <a href="https://instagram.com/cibele_estudio" target="_blank">📸 @cibele_estudio</a>
