@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido recibido — Cibele Estudio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Mismo estilo de tienda, lo resumo por brevedad, pero incluirías el CSS completo */
+        body { font-family: 'Nunito', sans-serif; background: #f5f0e6; color: #2e2416; margin:0; }
+        .confirm-container { display: flex; align-items: center; justify-content: center; min-height: 80vh; padding: 2rem; }
+        .card { text-align: center; max-width: 500px; background: white; border: 1.5px solid #d8cfc0; border-radius: 16px; padding: 2.5rem; }
+        .check { width: 80px; height: 80px; background: linear-gradient(135deg, #c8b4e0, #b09ad0); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; }
+        h1 { font-family: 'Caveat', cursive; font-size: 2.8rem; color: #5a7050; margin-bottom: 0.5rem; }
+        .pedido-id { background: #f3eefb; border: 1px solid #c8b4e0; padding: 0.5rem 1rem; border-radius: 30px; display: inline-block; margin: 1rem 0; font-weight: bold; }
+        .btn-volver { display: inline-block; margin-top: 1.5rem; padding: 0.8rem 2rem; border: 1.5px solid #d8cfc0; color: #8a7d6a; text-decoration: none; border-radius: 30px; transition: 0.2s; }
+        .btn-volver:hover { border-color: #c8b4e0; color: #5a7050; }
+    </style>
+</head>
+<body>
+    <div class="confirm-container">
+        <div class="card">
+            <div class="check">✓</div>
+            <h1>¡Pedido recibido!</h1>
+            <p class="pedido-id" id="pedidoId">#---</p>
+            <p>Gracias por tu pedido. Nos vamos a comunicar con vos a la brevedad por WhatsApp o email para coordinar los detalles de la entrega.</p>
+            <a href="index.html" class="btn-volver">Volver a la tienda</a>
+        </div>
+    </div>
+    <script>
+        // Mostrar el ID del pedido desde la URL
+        const params = new URLSearchParams(window.location.search);
+        const pedidoId = params.get('pedido_id');
+        if (pedidoId) {
+            document.getElementById('pedidoId').textContent = '#' + pedidoId;
+        }
+    </script>
+</body>
+</html>
